@@ -17,7 +17,7 @@ from tree_sitter_languages import get_language
 from call_graph import build_graph, write_graph_output, FunctionInfo, CallSite
 from helpers import text, rel, class_stack, pkg_name
 
-# Optional multilspy import ---------------------------------------------------
+# Optional multilspy import
 try:
     from multilspy import SyncLanguageServer  # type: ignore
     from multilspy.multilspy_config import MultilspyConfig  # type: ignore
@@ -27,9 +27,7 @@ try:
 except ModuleNotFoundError:  # pragma: no cover
     _MULTILSPY_AVAILABLE = False
 
-# ----------------------------------------------------------------------------
-# Tree‑sitter setup & queries
-# ----------------------------------------------------------------------------
+# For tree-sitter
 JAVA_LANGUAGE = get_language("java")
 PARSER = Parser()
 PARSER.set_language(JAVA_LANGUAGE)
@@ -192,7 +190,7 @@ def main(argv: List[str] | None = None):
     
     output = args.output.resolve()
     write_graph_output(G, output)
-    print(f"\nWrote {output.absolute().as_posix()}/call_graph.json and {output.absolute().as_posix()}/call_graph.dot ✔")
+    print(f"\nWrote {output.absolute().as_posix()}/call_graph.json and {output.absolute().as_posix()}/call_graph.dot!")
 
 
 if __name__ == "__main__":
